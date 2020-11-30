@@ -5,9 +5,9 @@ from django.db import models
 # Create your models here.
 class Account(AbstractBaseUser, PermissionsMixin):
     name = models.CharField(max_length=30)
-    username = models.CharField(max_length=200,unique=True)
+    username = models.CharField(max_length=200,unique=True,blank=False)
     last_name = models.CharField(max_length=30)
-    email = models.EmailField()
+    email = models.EmailField(unique=True)
     date_created = models.DateTimeField(auto_now_add=True)
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
